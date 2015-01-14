@@ -4,9 +4,25 @@
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
-
+  , config = require('./config/config')
+  , Media = require('./models/media')
+  , mongoose = require('mongoose')
 
 var app = express()
+
+mongoose.connect(config.mongo.uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function callback () {
+
+  var media = new Media({
+    name: 'test_name',
+    source: 'test_source'
+  });
+  media.save();
+
+});
 
 function compile(str, path) {
   return stylus(str)
