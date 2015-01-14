@@ -1,7 +1,9 @@
 /* jshint node:true */
 'use strict';
 // generated on 2015-01-12 using generator-gulp-webapp 0.2.0
-var gulp = require('gulp');
+var gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
+  jshint = require('gulp-jshint');
 var $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
@@ -128,4 +130,17 @@ gulp.task('scripts', function () {
   return gulp.src('app/scripts/**/*.coffee')
     .pipe($.coffee())
     .pipe(gulp.dest('.tmp/scripts'));
+});
+
+gulp.task('lint', function () {
+  gulp.src('./**/*.js')
+    .pipe(jshint())
+});
+
+gulp.task('develop', function () {
+  nodemon({ script: 'server.js', ext: 'html js', ignore: ['ignored.js'] })
+    .on('change', ['lint'])
+    .on('restart', function () {
+      console.log('restarted!')
+    })
 });
