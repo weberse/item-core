@@ -138,7 +138,15 @@ gulp.task('lint', function () {
 });
 
 gulp.task('develop', function () {
-  nodemon({ script: 'server.js', ext: 'html js', ignore: ['ignored.js'] })
+  nodemon({ script: 'app/app.js', ext: 'html js', ignore: ['ignored.js'] })
+    .on('change', ['lint'])
+    .on('restart', function () {
+      console.log('restarted!')
+    })
+});
+
+gulp.task('tube', function () {
+  nodemon({ script: 'item/tube/app.js', ext: 'html js', ignore: ['ignored.js'] })
     .on('change', ['lint'])
     .on('restart', function () {
       console.log('restarted!')
