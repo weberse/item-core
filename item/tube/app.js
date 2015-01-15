@@ -7,6 +7,7 @@ var express = require('express')
   , config = require('./config/config')
   , Media = require('./models/media')
   , mongoose = require('mongoose')
+  , media = require('./src/api/media/media.index')
 
 var app = express()
 
@@ -40,10 +41,6 @@ app.use(stylus.middleware(
 ))
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function (req, res) {
-  res.render('index',
-  { title : 'Home' }
-  )
-})
+media.run
 
 app.listen(8080)
