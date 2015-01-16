@@ -29,11 +29,15 @@
     "jade": "^1.9.0",
     "jshint-stylish": "^1.0.0",
     "main-bower-files": "^2.1.0",
+    "mongoose": "^3.8.21",
     "nib": "^1.0.4",
     "opn": "^1.0.0",
     "serve-index": "^1.1.4",
     "serve-static": "^1.4.0",
     "stylus": "^0.49.3",
     "wiredep": "^2.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.1"
   }
 }
