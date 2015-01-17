@@ -25,9 +25,13 @@ exports.list = function(req, res) {
 	});
 };
 
-exports.randVideo = function(rq, res) {
-	Media.find({'type': 'video'},function (err, medias) {
-    	if(err) { return handleError(res, err); }
-    	return res.status(200).json(medias);
-	});
+exports.rand = function(rq, res) {
+	// Media.find({'type': 'video'},function (err, medias) {
+ //    	if(err) { return handleError(res, err); }
+ //    	return res.status(200).json(medias);
+	// });
+	res.render('live.html',
+  		{ title : 'Home' }
+	)
+
 };

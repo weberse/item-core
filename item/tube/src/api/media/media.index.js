@@ -8,6 +8,6 @@ var router = express.Router();
 router.get('/', controller.index);
 router.post('/', controller.create);
 router.get('/list', controller.list);
-router.get('/play', controller.play);
+router.get('/rand', controller.rand);
 
 module.exports = router;

@@ -7,7 +7,6 @@
   <title>live</title>
   <meta name="description" content="item tube live">
   <meta name="author" content="item">
-
   <!-- <link rel="stylesheet" href="css/styles.css"> -->
 
   <!--[if lt IE 9]>
@@ -16,7 +15,20 @@
 </head>
 
 <body>
-	Tube running
+	Tube live
   <!-- // <script src="js/scripts.js"></script> -->
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script>
+  // initialize client with app credentials
+  SC.initialize({
+    client_id: '5409ed67988608ebd6ab1ab4264243f8',
+    redirect_uri: 'weberse.com'
+  });
+
+  // initiate auth popup
+  SC.stream("/tracks/293", function(sound){
+    sound.play();
+  });
+  </script>
 </body>
 </html>

@@ -3,6 +3,8 @@
 // generated on 2015-01-12 using generator-gulp-webapp 0.2.0
 var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
+  requireDir = require('require-dir'),
+  tube = requireDir('./item/tube/tasks'),
   jshint = require('gulp-jshint');
 var $ = require('gulp-load-plugins')();
 
@@ -139,14 +141,6 @@ gulp.task('lint', function () {
 
 gulp.task('develop', function () {
   nodemon({ script: 'app/app.js', ext: 'html js', ignore: ['ignored.js'] })
-    .on('change', ['lint'])
-    .on('restart', function () {
-      console.log('restarted!')
-    })
-});
-
-gulp.task('tube', function () {
-  nodemon({ script: 'item/tube/server.js', ext: 'html js', ignore: ['ignored.js'] })
     .on('change', ['lint'])
     .on('restart', function () {
       console.log('restarted!')
