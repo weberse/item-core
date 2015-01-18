@@ -12,23 +12,10 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script src="js/app.js" ></script>
 </head>
 
 <body>
 	Tube live
-  <!-- // <script src="js/scripts.js"></script> -->
-  <script src="http://connect.soundcloud.com/sdk.js"></script>
-  <script>
-  // initialize client with app credentials
-  SC.initialize({
-    client_id: '5409ed67988608ebd6ab1ab4264243f8',
-    redirect_uri: 'weberse.com'
-  });
-
-  // initiate auth popup
-  SC.stream("/tracks/293", function(sound){
-    sound.play();
-  });
-  </script>
 </body>
 </html>
