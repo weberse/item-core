@@ -12,6 +12,6 @@ gulp.task('tube', function () {
 
 gulp.task('coffee', function() {
   gulp.src('./item/tube/src/client/*.coffee')
-  .pipe(coffee())
+  .pipe(coffee({bare: true}))
   .pipe(gulp.dest('./item/tube/public/js/'))
 });

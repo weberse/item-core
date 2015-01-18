@@ -1,32 +1,16 @@
-(function() {
-  var TubeAudio, script;
+var ItemTube;
 
-  TubeAudio = (function() {
-    function TubeAudio(audio) {
-      this.audio = audio;
-    }
+ItemTube = (function() {
+  function ItemTube() {
+    var audio;
+    audio = new TubeAudio();
+    audio.soundCloudTest();
+  }
 
-    TubeAudio.prototype.play = function() {
-      return alert(this.audio);
-    };
-
-    return TubeAudio;
-
-  })();
-
-  script = document.createElement('script');
-
-  script.src = 'http://connect.soundcloud.com/sdk.js';
-
-  document.head.appendChild(script);
-
-  script.onload = function() {
-    SC.initialize({
-      client_id: '5409ed67988608ebd6ab1ab4264243f8'
-    });
-    return SC.stream("/tracks/293", function(sound) {
-      return sound.play();
-    });
+  ItemTube.prototype.play = function() {
+    return alert(this.audio);
   };
 
-}).call(this);
+  return ItemTube;
+
+})();
