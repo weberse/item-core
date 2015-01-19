@@ -8,7 +8,7 @@ exports.index = function(req, res) {
 };
 
 exports.read = function(req, res) {
-	
+
 };
 
 exports.create = function(req, res) {
@@ -26,6 +26,8 @@ exports.list = function(req, res) {
 };
 
 exports.rand = function(rq, res) {
+	audio = {url: 'asd', source: 'sc'};
+	res.status(200).json(audio);
 	// Media.find({'type': 'video'},function (err, medias) {
  //    	if(err) { return handleError(res, err); }
  //    	return res.status(200).json(medias);
