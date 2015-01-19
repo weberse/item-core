@@ -12,7 +12,7 @@ gulp.task('tube', ['coffee'], function () {
 });
 
 gulp.task('coffee', function() {
-  gulp.src('./item/tube/src/client/*.coffee')
+  gulp.src('./item/tube/src/client/**/*.coffee')
   .pipe(coffee({bare: true}))
   .pipe(concat('app.js'))
   .pipe(gulp.dest('./item/tube/public/js/'))
