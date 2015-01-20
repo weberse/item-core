@@ -26,14 +26,6 @@ exports.list = function(req, res) {
 };
 
 exports.rand = function(rq, res) {
-	audio = {url: 'asd', source: 'sc'};
-	res.status(200).json(audio);
-	// Media.find({'type': 'video'},function (err, medias) {
- //    	if(err) { return handleError(res, err); }
- //    	return res.status(200).json(medias);
-	// });
-	res.render('live.html',
-  		{ title : 'Home' }
-	)
-
+	audio = {url: '/tracks/293', source: 'sc'};
+	return res.status(200).json(audio);
 };
