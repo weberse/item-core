@@ -1,9 +1,8 @@
 class MediaService
 
     constructor: (@$http) ->
-      @getRandomAudio()
 
-    getRandomAudio: ->
+    getRandomAudio: (callback)->
       request = @$http.get '/audio/random'
       request.then (result) =>
-        console.log(result.data)
+        callback(result.data)

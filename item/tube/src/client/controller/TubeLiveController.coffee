@@ -6,15 +6,19 @@ class TubeController
         @playText = "play"
 
         @play = () ->
-          mediaService.getRandomAudio()
+          mediaService.getRandomAudio((data) ->
+            tubeAudio = new TubeAudio()
+            tubeAudio.soundCloudTest(data)
+          )
           @playText = "stop"
-          console.log()
-        # audio = new TubeAudio()
-        # audio.soundCloudTest()
 
     stop: ->
         @playText = "play"
         audio.stop()
+
+    playAudio: (audio)->
+        tubeAudio = new TubeAudio(audio)
+        tubeAudio.soundCloudTest()
 
 angular.module("tube", [])
 .service "MediaService", ['$http', MediaService]
