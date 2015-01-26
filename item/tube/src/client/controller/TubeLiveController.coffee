@@ -1,20 +1,19 @@
 class TubeController
     constructor: (@$scope, mediaService) ->
-        $scope.audios = [
-            {url: "", src: "sc"}
-            {url: "", src: "sc"}]
-        @playText = "play"
+        @stateText = "play"
+        @statePlay = false;
 
-        @play = () ->
-          mediaService.getRandomAudio((data) ->
-            tubeAudio = new TubeAudio()
-            tubeAudio.soundCloudTest(data)
-          )
-          @playText = "stop"
 
-    stop: ->
-        @playText = "play"
-        audio.stop()
+        @toggleState = () ->
+          @statePlay = !@statePlay
+          if @statePlay
+            @stateText = "stop"
+            mediaService.playRandomAudio()
+          else
+            @stateText = "play"
+            mediaService.stop()
+
+
 
     playAudio: (audio)->
         tubeAudio = new TubeAudio(audio)
